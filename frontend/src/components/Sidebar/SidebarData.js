@@ -1,14 +1,15 @@
 import React from 'react';
 import * as MdIcons from 'react-icons/md';
 import * as RiIcons from 'react-icons/ri';
+import * as FaIcons from 'react-icons/fa'
 
 export const SidebarData = [
   {
     title: 'Tours',
     path: '/dashboard/tours',
     icon: <MdIcons.MdTour />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+    iconClosed: <RiIcons.RiArrowUpSFill />,
+    iconOpened: <RiIcons.RiArrowDownSFill />,
 
     subNav: [
       {
@@ -27,8 +28,8 @@ export const SidebarData = [
     title: 'Customers',
     path: '/dashboard/customers',
     icon: <MdIcons.MdPerson2 />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+    iconClosed: <RiIcons.RiArrowUpSFill />,
+    iconOpened: <RiIcons.RiArrowDownSFill />,
 
     subNav: [
       {
@@ -43,5 +44,13 @@ export const SidebarData = [
         icon: ""
       },
     ]
+  },
+  {
+    title: 'Bookings',
+    path: '/dashboard/bookings',
+    icon: <FaIcons.FaCalendarCheck />,
+    iconClosed: <RiIcons.RiArrowUpSFill />,
+    iconOpened: <RiIcons.RiArrowDownSFill />,
+
   },
 ];

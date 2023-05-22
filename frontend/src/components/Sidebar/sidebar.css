@@ -40,7 +40,7 @@
     width: 95%;
     display: flex;
     position: absolute;
-    margin: 7px;
+    margin: 5px;
     bottom: 0;
     background: #003B67;
     padding: 3px;
@@ -52,5 +52,6 @@
 }
 
 .logout_dashboard:hover {
-    background: #024477;
+    background: #05518b;
+    transition: 0.2s;
 }

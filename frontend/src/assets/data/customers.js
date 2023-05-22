@@ -6,7 +6,7 @@ const customers = [
         phone: "0123456789",
         fullname: "Nguyen Van A",
         address: "Somewhere",
-        dateofbirth: "01/01/2000",
+        dateofbirth: "2000-01-01",
         avatar: ""
     },
     {
@@ -16,7 +16,7 @@ const customers = [
         phone: "0123456788",
         fullname: "Nguyen Van B",
         address: "Somewhere",
-        dateofbirth: "02/01/2000"
+        dateofbirth: "2000-01-02"
     },
     {
         id: "03",
@@ -25,7 +25,7 @@ const customers = [
         phone: "0123456787",
         fullname: "Nguyen Van C",
         address: "Somewhere",
-        dateofbirth: "03/01/2000"
+        dateofbirth: "2000-01-03"
     },
     {
         id: "04",
@@ -34,7 +34,7 @@ const customers = [
         phone: "0123456786",
         fullname: "Nguyen Van D",
         address: "Somewhere",
-        dateofbirth: "05/01/2000"
+        dateofbirth: "2000-01-04"
     },
     {
         id: "05",
@@ -43,7 +43,7 @@ const customers = [
         phone: "0123456785",
         fullname: "Nguyen Van E",
         address: "Somewhere",
-        dateofbirth: "04/01/2000"
+        dateofbirth: "2000-01-05"
     },
     {
         id: "06",
@@ -52,7 +52,7 @@ const customers = [
         phone: "0123456784",
         fullname: "Nguyen Van F",
         address: "Somewhere",
-        dateofbirth: "06/01/2000"
+        dateofbirth: "2000-01-06"
     },
     {
         id: "07",
@@ -61,7 +61,7 @@ const customers = [
         phone: "0123456783",
         fullname: "Nguyen Van G",
         address: "Somewhere",
-        dateofbirth: "07/01/2000"
+        dateofbirth: "2000-01-07"
     },
     {
         id: "08",
@@ -70,7 +70,7 @@ const customers = [
         phone: "0123456782",
         fullname: "Nguyen Van H",
         address: "Somewhere",
-        dateofbirth: "08/01/2000"
+        dateofbirth: "2000-01-08"
     },
     {
         id: "09",
@@ -79,7 +79,7 @@ const customers = [
         phone: "0123456781",
         fullname: "Nguyen Van J",
         address: "Somewhere",
-        dateofbirth: "09/01/2000"
+        dateofbirth: "2000-01-09"
     },
     {
         id: "10",
@@ -88,7 +88,7 @@ const customers = [
         phone: "0123456780",
         fullname: "Nguyen Van K",
         address: "Somewhere",
-        dateofbirth: "10/01/2000"
+        dateofbirth: "2000-01-10"
     },
 ]
 

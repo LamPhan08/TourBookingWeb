@@ -60,7 +60,13 @@
 }
 
 .auth__btn {
-    background: var(--heading-color) !important;
+    background: #003B67 !important;
+    color: #fff !important;
+    width: 100%;
+}
+
+.auth__btn:hover {
+    background: #05518b !important;
     color: #fff !important;
     width: 100%;
 }

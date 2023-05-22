@@ -42,7 +42,7 @@ const Footer = () => {
         <footer className="footer">
             <Container>
                 <Row>
-                    <Col lg = '3'>
+                    <Col lg = '4'>
                         <div className="logo">
                             <img src={logo} alt="" />
 
@@ -55,7 +55,7 @@ const Footer = () => {
                                     </Link>
                                 </span>
             
-                                <span>
+                                <span>  
                                     <Link to='#'>
                                         <i className="ri-facebook-circle-line"></i>
                                     </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                         </div>
                     </Col>
 
-                    <Col lg = '3' >
+                    <Col lg = '4' >
                         <h5 className="footer__link-title">Discover</h5>
 
                         <ListGroup className="footer__quick-links">
@@ -79,6 +79,7 @@ const Footer = () => {
                                     <ListGroupItem key={index} className = "ps-0 border-0">
                                         <Link to = {item.path}>
                                             {item.display}
+                                            {window.scrollTo(80,0)}
                                         </Link>
                                     </ListGroupItem>
                                 ))
@@ -86,23 +87,8 @@ const Footer = () => {
                         </ListGroup>
                     </Col>
 
-                    <Col lg = '3' >
-                        <h5 className="footer__link-title">Quick Links</h5>
 
-                        <ListGroup className="footer__quick-links">
-                            {
-                                quick_links2.map((item, index) => (
-                                    <ListGroupItem key = {index}  className = "ps-0 border-0">
-                                        <Link to = {item.path}>
-                                            {item.display}
-                                        </Link>
-                                    </ListGroupItem>
-                                ))
-                            }
-                        </ListGroup>
-                    </Col>
-
-                    <Col lg='3' >
+                    <Col lg='4' >
                         <h5 className="footer__link-title">Contact</h5>
 
                         <ListGroup className="footer__quick-links">

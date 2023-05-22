@@ -2,18 +2,18 @@ import React from 'react'
 import { MdCalendarToday, MdLocationSearching, MdMailOutline, MdPermIdentity, MdPhoneAndroid } from 'react-icons/md'
 import './customeredit.css'
 import customerData from '../../assets/data/customers'
-import {useParams, Link} from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 const CustomerDetails = () => {
-  const {id} = useParams();
+  const { id } = useParams();
 
   const customer = customerData.find(customer => customer.id === id);
 
-  const {fullname, username, email, phone, address, dateofbirth} = customer;
+  const { fullname, username, email, phone, address, dateofbirth } = customer;
 
   return (
     <div className="user">
-      <div className="userTitleContainer">  
+      <div className="userTitleContainer">
         <h1 className="userTitle">Customer Details</h1>
         {/* <Link to="/newUser">
           <button className="userAddButton">Create</button>
@@ -63,25 +63,31 @@ const CustomerDetails = () => {
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
+                <label>Email</label>
+                <span className="userUpdateInput">{email}</span>
+              </div>
+
+              <div className="userUpdateItem">
                 <label>Username</label>
-                  <span  className="userUpdateInput">{username}</span> 
+                <span className="userUpdateInput">{username}</span>
               </div>
               <div className="userUpdateItem">
                 <label>Full Name</label>
-                  <span  className="userUpdateInput">{fullname}</span> 
+                <span className="userUpdateInput">{fullname}</span>
               </div>
-              <div className="userUpdateItem">
-                <label>Email</label>
-                  <span  className="userUpdateInput">{email}</span> 
-              </div>
+
               <div className="userUpdateItem">
                 <label>Phone</label>
-                  <span  className="userUpdateInput">{phone}</span> 
+                <span className="userUpdateInput">{phone}</span>
 
               </div>
               <div className="userUpdateItem">
                 <label>Address</label>
-                  <span  className="userUpdateInput">{address}</span> 
+                <span className="userUpdateInput">{address}</span>
+              </div>
+              <div className="userUpdateItem">
+                <label>Date of Birth</label>
+                <span className="userUpdateInput">{dateofbirth}</span>
               </div>
             </div>
             <div className="userUpdateRight">

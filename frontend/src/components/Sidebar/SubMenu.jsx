@@ -1,33 +1,38 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './subMenu.css';
 
 
 const SubMenu = ({item}) => {
     const [subnav, setSubnav] = useState(false)
 
-    const showSubnav = () => setSubnav(!subnav)
+    const [openMenu, setOpenMenu] = useState(false)
+
+    const showSubnav = () => {
+      setSubnav(!subnav)
+      setOpenMenu(!openMenu)
+    }
 
   return (
     <>
-      <Link className={'sidebar_link'} to={item.path} onClick={item.subNav && showSubnav}>
+      <NavLink className={`sidebar_link ${(item.subNav && subnav) ? '' : ((item.subNav && !subnav) ? 'inactive' : '')}`} to={item.path} onClick={item.subNav ? showSubnav : null}>
         <div>
             {item.icon}
             <span className='sidebar_label'>{item.title}</span>
         </div>
 
         <div>
-            {(item.subNav && subnav) ? item.iconOpened : (item.subNav ? item.iconClosed : null)}
+            {(item.subNav && subnav) ? item.iconClosed : (item.subNav ? item.iconOpened : null)}
         </div>
-      </Link>
+      </NavLink>
 
       {subnav && item.subNav.map((item, index) => {
         return (
-            <Link className='dropdown_menu' key={index} to={item.path}>
+            <NavLink className='dropdown_menu' key={index} to={item.path}>
                 {item.icon}
                 <span className='sidebar_label'>{item.title}</span>
-            </Link>
+            </NavLink>
         )
       })}
     </>

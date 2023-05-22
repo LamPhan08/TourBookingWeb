@@ -5,11 +5,11 @@ import customerData from '../../assets/data/customers'
 import { useParams, Link } from 'react-router-dom'
 
 const CustomerEdit = () => {
-  const {id} = useParams();
+  const { id } = useParams();
 
   const customer = customerData.find(customer => customer.id === id);
 
-  const {fullname, username, email, phone, address, dateofbirth} = customer;
+  const { fullname, username, email, phone, address, dateofbirth } = customer;
 
   return (
     <div className="user">
@@ -62,6 +62,14 @@ const CustomerEdit = () => {
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
+                <label>Email</label>
+                <input
+                  type="text"
+                  placeholder={email}
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
                 <label>Username</label>
                 <input
                   type="text"
@@ -77,14 +85,7 @@ const CustomerEdit = () => {
                   className="userUpdateInput"
                 />
               </div>
-              <div className="userUpdateItem">
-                <label>Email</label>
-                <input
-                  type="text"
-                  placeholder={email}
-                  className="userUpdateInput"
-                />
-              </div>
+
               <div className="userUpdateItem">
                 <label>Phone</label>
                 <input
@@ -101,6 +102,14 @@ const CustomerEdit = () => {
                   className="userUpdateInput"
                 />
               </div>
+              <div className="userUpdateItem">
+                <label>Address</label>
+                <input
+                  type="date"
+                  defaultValue={dateofbirth}
+                  className="userUpdateInput"
+                />
+              </div>
             </div>
             <div className="userUpdateRight">
               {/* <div className="userUpdateUpload">
@@ -114,9 +123,9 @@ const CustomerEdit = () => {
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div> */}
-              
+
               <Link to={"/dashboard/customers/customerdetails/" + id}>
-                <button className="userUpdateButton">Update</button>  
+                <button className="userUpdateButton">Update</button>
               </Link>
             </div>
           </form>

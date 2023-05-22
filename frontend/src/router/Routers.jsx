@@ -15,6 +15,8 @@ import CustomerList from "../Management/Customers/CustomerList";
 import CustomerDetails from "../Management/Customers/CustomerDetails";
 import CustomerAdd from "../Management/Customers/CustomerAdd";
 import CustomerEdit from "../Management/Customers/CustomerEdit";
+import BookingList from "../Management/Bookings/BookingList";
+import Profile from "../pages/Profile";
 
 const Routers = () => {
     return (
@@ -35,6 +37,8 @@ const Routers = () => {
             <Route path='/dashboard/customers/customerdetails/:id' element={<CustomerDetails/>}/>
             <Route path='/dashboard/customers/customeradd' element={<CustomerAdd/>}/>
             <Route path='/dashboard/customers/customeredit/:id' element={<CustomerEdit/>}/>
+            <Route path='/dashboard/bookings' element={<BookingList/>}/>
+            <Route path='/profile' element={<Profile/>}/>
         </Routes>
     )
 };

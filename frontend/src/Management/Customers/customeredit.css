@@ -108,7 +108,12 @@
       height: 30px;
       border-bottom: 1px solid gray;
   }
-  
+
+  .userUpdateInput:focus {
+    border-bottom: 1px solid gray;
+    outline: none;
+  }
+
   .userUpdateRight{
       display: flex;
       flex-direction: column;

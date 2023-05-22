@@ -1,11 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { IconContext } from 'react-icons/lib';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import logo from '../../assets/images/logo.png'
 import './sidebar.css';
+import { AuthContext } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+    const navigate = useNavigate()
+    const {dispatch} = useContext(AuthContext);
+
+    const logout = () => {
+        dispatch({type: 'LOGOUT'});
+        navigate('/');
+    };
+
     return (
         <div className='sidebar'>
             <IconContext.Provider value={{ color: '#000' }}>
@@ -32,7 +42,7 @@ const Sidebar = () => {
                             return <SubMenu item={item} key={index}/>
                         })}
 
-                        <button className='logout_dashboard'>
+                        <button className='logout_dashboard' onClick={logout}>
                             Logout
                         </button>
                     </div>
