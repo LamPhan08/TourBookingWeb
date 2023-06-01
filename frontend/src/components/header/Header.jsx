@@ -80,6 +80,13 @@ const Header = () => {
         navigate('/profile')
     }
 
+    const navigateBookings = () => {
+        setOpenMenu(!openMenu)
+        navigate('/mybookings')
+    }
+
+    
+
     // https://cdn-icons-png.flaticon.com/512/2815/2815428.png"
 
     return <header className="header" ref={headerRef}>
@@ -139,7 +146,7 @@ const Header = () => {
                                                     ? <DropDownItem img={tableGrid} text="Dashboard" onclick={navigateDashboard} />
                                                     : <>
                                                         <DropDownItem img={person} text="My Profile" onclick={navigateProfile} />
-                                                        <DropDownItem img={booking} text="My Bookings" />
+                                                        <DropDownItem img={booking} text="My Bookings" onclick={navigateBookings}/>
                                                     </>}
                                                 <DropDownItem img={log_out} text="Logout" onclick={logout} />
                                             </ul>

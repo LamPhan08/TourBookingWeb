@@ -20,23 +20,22 @@ const quick_links = [
     },
 ]
 
-const quick_links2 = [
-    // {
-    //     path: '/gallery',
-    //     display: 'Gallery'
-    // },
-    {
-        path: '/login',
-        display: 'Login'
-    },
-    {
-        path: '/register',
-        display: 'Register'
-    },
-]
+// const quick_links2 = [
+//     // {
+//     //     path: '/gallery',
+//     //     display: 'Gallery'
+//     // },
+//     {
+//         path: '/login',
+//         display: 'Login'
+//     },
+//     {
+//         path: '/register',
+//         display: 'Register'
+//     },
+// ]
 
 const Footer = () => {
-    const year = new Date().getFullYear();
 
     return (
         <footer className="footer">
@@ -131,7 +130,7 @@ const Footer = () => {
                     </Col>
 
                     <Col lg = '12' className="text-center pt-5">
-                        <p className="copyright">Copyright {year}, designed and developed by
+                        <p className="copyright">Copyright 2023, designed and developed by
                         Nguyen Cong Doan and Phan Nhat Lam.
                         </p>
                     </Col>

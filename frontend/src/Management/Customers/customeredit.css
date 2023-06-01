@@ -150,5 +150,6 @@
 
   .userUpdateButton:hover {
     background: #0fa75d;
+    transition: 0.2s;
   }
 

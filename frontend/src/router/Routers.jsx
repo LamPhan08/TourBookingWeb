@@ -16,7 +16,13 @@ import CustomerDetails from "../Management/Customers/CustomerDetails";
 import CustomerAdd from "../Management/Customers/CustomerAdd";
 import CustomerEdit from "../Management/Customers/CustomerEdit";
 import BookingList from "../Management/Bookings/BookingList";
+import BookingDetails from "../Management/Bookings/BookingDetails";
 import Profile from "../pages/Profile";
+import MyBookings from "../pages/MyBookings";
+import MyBookingDetails from "../pages/MyBookingDetails";
+import Payment from "../pages/Payment";
+import SubmitReceipt from "../pages/SubmitReceipt";
+import About from "../pages/About";
 
 const Routers = () => {
     return (
@@ -38,7 +44,13 @@ const Routers = () => {
             <Route path='/dashboard/customers/customeradd' element={<CustomerAdd/>}/>
             <Route path='/dashboard/customers/customeredit/:id' element={<CustomerEdit/>}/>
             <Route path='/dashboard/bookings' element={<BookingList/>}/>
+            <Route path='/dashboard/bookings/bookingdetails/:id' element={<BookingDetails/>}/>
             <Route path='/profile' element={<Profile/>}/>
+            <Route path='/mybookings' element={<MyBookings/>}/>
+            <Route path='/mybookings/:id' element={<MyBookingDetails/>}/>
+            <Route path='/tours/payment/:id' element={<Payment/>}/>
+            <Route path='/tours/payment/receipt/:id' element={<SubmitReceipt/>}/>
+            <Route path='/about' element={<About/>}/>
         </Routes>
     )
 };

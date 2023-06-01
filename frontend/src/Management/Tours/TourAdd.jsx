@@ -9,7 +9,7 @@ const TourAdd = () => {
   const [itinerary, setItinerary] = useState('');
   
   const [file, setFile] = useState();
-    function handleUpload(e) {
+  function handleUpload(e) {
         console.log(e.target.files);
         setFile(URL.createObjectURL(e.target.files[0]));
   }
@@ -78,7 +78,7 @@ const TourAdd = () => {
       </form>
 
       <div>
-        <img id='tourPhoto' className='tour__img' src={file} alt="Tour Image" />
+        <img id='tourPhoto' className='tour__img' src={file} alt="" />
       </div>
 
       <div>

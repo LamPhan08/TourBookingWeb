@@ -93,3 +93,7 @@
   background: #05518b;
   transition: 0.2s;
 }
+
+.displayLabel {
+  font-weight: 600;
+}

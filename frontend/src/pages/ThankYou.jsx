@@ -18,6 +18,8 @@ const ThankYou = () => {
 
                             <h3 className="mb-4">Your tour is booked!</h3>
 
+                            <h3 className="mb-4">You can check your bookings from "My Bookings" page</h3>
+
                             <Button className="btn primary__btn w-25">
                                 <Link to = '/home'>Back to Home</Link>
                             </Button>

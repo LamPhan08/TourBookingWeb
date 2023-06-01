@@ -52,6 +52,7 @@
     border-radius: 5px;
     padding-left: 5px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .btn_zone {
@@ -75,6 +76,7 @@
 
 .newTourButton:hover {
     background: #024477;
+    transition: 0.2s;
 }
 
 .uploadTourPhotoButton {
@@ -92,6 +94,7 @@
 
 .uploadTourPhotoButton:hover {
     background: #024477;
+    transition: 0.2s;
 }
 
 .tour__img {

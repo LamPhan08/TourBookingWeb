@@ -73,6 +73,12 @@ const TourDetails = () => {
         window.scrollTo(0, 0);
     }, [tour]);
 
+    const [viewImage, setViewImage] = useState()
+
+    const handleViewImage = () => {
+        setViewImage(!viewImage)
+    }
+
     return (<>
         <section id="tour_details_section">
             <Container>
@@ -87,7 +93,7 @@ const TourDetails = () => {
                     <Row>
                         <Col lg = '8'>
                             <div className="tour__content">
-                                <img src={photo} alt="" />
+                                <img src={photo} alt="" onClick={handleViewImage}/>
 
                                 <div className="tour__info">
                                     <h2>{title}</h2>
@@ -208,6 +214,12 @@ const TourDetails = () => {
             </Container>
         </section>
         <Newsletter/>
+
+        {viewImage && <div className='popupImage'>
+          <span onClick={handleViewImage}>&times;</span>
+
+          <img src={photo} alt="" />
+        </div>}
     </>);
 };
 

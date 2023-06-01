@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import {DataGrid} from '@mui/x-data-grid';
+import React, { useState } from 'react'
+import { DataGrid } from '@mui/x-data-grid';
 import { MdDeleteOutline } from 'react-icons/md';
 import { MdEdit } from 'react-icons/md';
-import {GrView} from 'react-icons/gr';
+import { GrView } from 'react-icons/gr';
 import './customerlist.css'
 import { Link } from 'react-router-dom';
 import customerData from '../../assets/data/customers'
@@ -27,14 +27,14 @@ const CustomerList = () => {
         return (
           <div className='action_zone'>
             <Link to={'/dashboard/customers/customerdetails/' + params.row.id}>
-              <GrView className='view_customer'/>
+              <GrView className='view_customer' />
             </Link>
-            
+
             <Link to={'/dashboard/customers/customeredit/' + params.row.id}>
               <MdEdit className='edit_customer' />
             </Link>
 
-            <MdDeleteOutline className='delete_customer' onClick={() => handleDelete(params.row.id)}/>
+            <MdDeleteOutline className='delete_customer' onClick={() => handleDelete(params.row.id)} />
           </div>
         )
       }
@@ -54,6 +54,24 @@ const CustomerList = () => {
         pageSizeOptions={[10, 20]}
         checkboxSelection
         disableRowSelectionOnClick
+        sx={{
+          '.MuiTablePagination-displayedRows': {
+            marginBottom: 0
+          },
+
+          '.MuiTablePagination-selectLabel': {
+            marginBottom: 0
+          },
+          '.MuiDataGrid-cell:focus': {
+            outline: 'none'
+          },
+          '.MuiDataGrid-cell:active': {
+            outline: 'none'
+          },
+          '.MuiDataGrid-columnHeaderTitle': {
+            fontWeight: 600
+          },
+        }}
       />
     </div>
   )

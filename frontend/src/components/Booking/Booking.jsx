@@ -1,65 +1,96 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext, useRef } from "react";
 
 import './booking.css';
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from "reactstrap";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../context/AuthContext.js";
-import { BASE_URL } from "../../utils/config.js";
+import { useParams } from "react-router-dom";
 
-const Booking = ({tour, avgRating}) => {
-    const {price, reviews, title} = tour;
+const Booking = ({ tour, avgRating }) => {
+    const fullNameRef = useRef('')
+    const phoneRef = useRef('')
+    const guestSizeRef = useRef('')
+
+    const { price, reviews, title } = tour;
 
     const navigate = useNavigate();
 
-    const {user} = useContext(AuthContext);
+    const { id } = useParams()
+
+    const { user } = useContext(AuthContext);
+
+    //Hàm trả về ngày hôm nay
+    const getDate = () => {
+        let today = new Date();
+
+        return today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+    }
 
     const [booking, setBooking] = useState({
-        userId: user && user._id,
         userEmail: user && user.email,
         tourName: title,
         fullName: '',
         phone: '',
         guestSize: 1,
-        bookAt: ''
+        bookAt: getDate(),
     })
 
     const handleChange = e => {
-        setBooking(prev => ({...prev, [e.target.id]:e.target.value}))
+        setBooking(prev => ({ ...prev, [e.target.id]: e.target.value }))
     };
 
     const serviceFee = 10;
     const totalAmount = Number(price) * Number(booking.guestSize) + Number(serviceFee);
 
+
     // send data to the server
     const handleClick = async e => {
-        e.preventDefault();
+        // e.preventDefault();
 
-        console.log(booking);
+        // console.log(booking);
 
-        try {
-            if(!user || user === undefined || user === null) {
-                return alert('Please sign in to continue!');
-            }
+        // try {
+        //     if(!user || user === undefined || user === null) {
+        //         return alert('Please sign in to continue!');
+        //     }
 
-            const res = await fetch(`${BASE_URL}/booking`, {
-                method: 'post',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                credentials: 'include',
-                body: JSON.stringify(booking),
-            });
+        //     const res = await fetch(`${BASE_URL}/booking`, {
+        //         method: 'post',
+        //         headers: {
+        //             'content-type': 'application/json'
+        //         },
+        //         credentials: 'include',
+        //         body: JSON.stringify(booking),
+        //     });
 
-            const result = await res.json();
-            if(!res.ok) {
-                return alert(result.message);
-            }
-            navigate('/thank-you');
-        } catch (err) {
-            alert(err.message);
+        //     const result = await res.json();
+        //     if(!res.ok) {
+        //         return alert(result.message);
+        //     }
+        //     navigate('/thank-you');
+        // } catch (err) {
+        //     alert(err.message);
+        // }
+
+        const _fullname = fullNameRef.current.value
+        const _phone = phoneRef.current.value
+        const _guestSize = guestSizeRef.current.value
+
+        if (_fullname === '' || _phone === '' || _guestSize === '') {
+            return alert('Please input full information!')
         }
 
-        navigate("/thank-you");
+        // Truyền dữ liệu tổng giá qua cho trang Payment
+        navigate("/tours/payment/" + id, {
+            state: {
+                bookingDate: booking.bookAt,
+                email: booking.userEmail,
+                fullName: booking.fullName,
+                phone: booking.phone,
+                numberofSeats: booking.guestSize,
+                totalPrice: totalAmount
+            }
+        });
     }
 
     return (
@@ -71,7 +102,7 @@ const Booking = ({tour, avgRating}) => {
                 </h3>
 
                 <span className="tour__rating d-flex align-items-center">
-                    <i className="ri-star-fill"></i> 
+                    <i className="ri-star-fill"></i>
                     {avgRating === 0 ? null : avgRating} ({reviews?.length})
 
                 </span>
@@ -85,28 +116,33 @@ const Booking = ({tour, avgRating}) => {
                 <Form className="booking__info-form" onSubmit={handleClick}>
                     <FormGroup>
                         <input type="text"
-                         placeholder="Full Name"
-                         id="fullName"
-                         required onChange={handleChange} />
+                            placeholder="Full Name"
+                            id="fullName"
+                            ref={fullNameRef}
+                            required onChange={handleChange} />
                     </FormGroup>
                     <FormGroup>
                         <input type="tel"
-                         className="phone__input"
-                         placeholder="Phone"
-                         id="phone"
-                         required onChange={handleChange} />
+                            className="phone__input"
+                            placeholder="Phone"
+                            id="phone"
+                            ref={phoneRef}
+                            required onChange={handleChange} />
                     </FormGroup>
                     <FormGroup className="d-flex align-items-center gap-3">
                         {/* <input type="date"
-                         placeholder=""
-                         id="bookAt"
-                         required onChange={handleChange} 
-                         /> */}
+                            placeholder=""
+                            // id="bookAt"
+                            required onChange={handleChange}
+                        /> */}
 
                         <input type="number"
-                         placeholder="Guest"
-                         id="guestSize"
-                         required onChange={handleChange} />
+                            placeholder="Guest"
+                            id="guestSize"
+                            ref={guestSizeRef}
+                            required onChange={handleChange} 
+                            // defaultValue={1}
+                            min={1}/>
                     </FormGroup>
                 </Form>
             </div>
@@ -134,7 +170,7 @@ const Booking = ({tour, avgRating}) => {
 
                         <span> ${serviceFee}</span>
                     </ListGroupItem>
-                    
+
                     <ListGroupItem className="border-0 px-0 total">
                         <h5>
                             Total

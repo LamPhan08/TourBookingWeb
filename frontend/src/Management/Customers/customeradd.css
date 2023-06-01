@@ -58,4 +58,6 @@
 
   .newUserButton:hover {
     background: #024477;
+    transition: 0.2s;
+
   }

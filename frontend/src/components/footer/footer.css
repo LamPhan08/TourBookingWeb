@@ -38,3 +38,13 @@
     color:  var(--text-color);
     font-size: 1rem;
 }
+
+.copyrightContainerFooter {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.copyrightIcon {
+    margin: 0px 5px
+}

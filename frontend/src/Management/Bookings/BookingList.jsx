@@ -1,23 +1,86 @@
 import React, { useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
-import { MdDeleteOutline } from 'react-icons/md';
-import { MdEdit } from 'react-icons/md';
+import { MdDeleteOutline, MdEmail, MdError } from 'react-icons/md';
 import { GrView } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
-import customerData from '../../assets/data/customers'
+import bookingData from '../../assets/data/bookings'
+import './bookinglist.css'
+import {ImPhone} from 'react-icons/im'
+import { BsCheck } from 'react-icons/bs'
+
 
 const BookingList = () => {
-  const [data, setData] = useState(customerData)
+  const [data, setData] = useState(bookingData)
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id))
   }
+
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'username', headerName: 'Customer', width: 250 },
-    { field: 'email', headerName: 'Email', width: 250 },
-    { field: 'address', headerName: 'Address', width: 250 },
-    { field: 'phone', headerName: 'Phone', width: 250 },
+
+    {
+      field: 'tourname',
+      headerName: 'Tour',
+      width: 250,
+      renderCell: (params) => {
+        return (
+          <div className='tourNameValue'>
+            {params.value}
+          </div>
+        )
+      }
+    },
+
+    {
+      field: 'contact',
+      headerName: 'Contact Details',
+      width: 250,
+      renderCell: (params) => {
+        return (
+          <div>
+            <div className='contactItem mb-2'>{params.row.fullName}</div>
+
+            <div className='contactItem mb-2'>
+              <MdEmail size={16} className='contactIcons'/>
+              {params.row.email}
+            </div>
+
+            <div className='contactItem'>
+              <ImPhone size={16} className='contactIcons'/>
+              {params.row.phone}
+            </div>
+          </div>
+        )
+      }
+    },
+
+    { field: 'startDate', headerName: 'Travel Date', width: 250 },
+
+    {
+      field: 'total',
+      headerName: 'Total Price',
+      width: 250,
+      renderCell: (params) => {
+        return (
+          <div className='totalPriceValue'>${params.value}</div>
+        )
+      }
+    },
+
+    { field: 'paymentStatus', 
+      headerName: 'Payment Status', 
+      width: 250,
+      renderCell: (params) => {
+        return (
+          <div className={`bookingPaymentStatus ${params.value === 'Pending' ? 'pendingStatus' : (params.value === 'Approved' ? 'approvedStatus' : 'invalidStatus')}`}>
+            {params.value === 'Pending' ? 'Pending...'
+                          : (params.value === 'Approved' ? <>Approved <BsCheck color='#A9A9A9' size={20} /></>
+                            : <>Invalid Receipt <MdError color='red' size={20} className='errorIcon' /></>)}
+          </div>
+        )
+      } },
+
     {
       field: 'action',
       headerName: 'Action',
@@ -25,15 +88,11 @@ const BookingList = () => {
       renderCell: (params) => {
         return (
           <div className='action_zone'>
-            <Link to={'/dashboard/customers/customerdetails/' + params.row.id}>
-              <GrView className='view_customer' />
+            <Link to={'/dashboard/bookings/bookingdetails/' + params.row.id}>
+              <GrView className='view_booking_details' />
             </Link>
 
-            <Link to={'/dashboard/customers/customeredit/' + params.row.id}>
-              <MdEdit className='edit_customer' />
-            </Link>
-
-            <MdDeleteOutline className='delete_customer' onClick={() => handleDelete(params.row.id)} />
+            <MdDeleteOutline className='delete_booking' onClick={() => handleDelete(params.row.id)} />
           </div>
         )
       }
@@ -41,7 +100,7 @@ const BookingList = () => {
   ];
 
   return (
-    <div className="customerlist">
+    <div className="bookinglist">
       <DataGrid
         rows={data}
         columns={columns}
@@ -49,10 +108,32 @@ const BookingList = () => {
           pagination: {
             paginationModel: { page: 0, pageSize: 10 },
           },
+          sorting: {
+            sortModel: [{ field: 'paymentStatus', sort: 'desc' }]
+          }
         }}
         pageSizeOptions={[10, 20]}
         checkboxSelection
         disableRowSelectionOnClick
+        rowHeight={100}
+        sx={{
+          '.MuiTablePagination-displayedRows': {
+            marginBottom: 0
+          },
+
+          '.MuiTablePagination-selectLabel': {
+            marginBottom: 0
+          },
+          '.MuiDataGrid-cell:active': {
+            outline: 'none'
+          },
+          '.MuiDataGrid-cell:focus': {
+            outline: 'none'
+          },
+          '.MuiDataGrid-columnHeaderTitle': {
+            fontWeight: 600
+          },
+        }}
       />
     </div>
   )

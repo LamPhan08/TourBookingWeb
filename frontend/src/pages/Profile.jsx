@@ -71,7 +71,7 @@ const Profile = () => {
                 <div className="profileUpdateForm">
                   <div className="profileUpdateLeft">
                     <div className="profileUpdateItem">
-                      <label>Email</label>
+                      <label className='displayLabel'>Email</label>
                       <input
                         type="text"
                         className="profileUpdateInput"
@@ -81,7 +81,7 @@ const Profile = () => {
                     </div>
 
                     <div className="profileUpdateItem">
-                      <label>Username</label>
+                      <label className='displayLabel'>Username</label>
                       <input
                         type="text"
                         placeholder="Not updated yet"
@@ -93,7 +93,7 @@ const Profile = () => {
                     </div>
 
                     <div className="profileUpdateItem">
-                      <label>Full Name</label>
+                      <label className='displayLabel'>Full Name</label>
                       <input
                         type="text"
                         placeholder="Not updated yet"
@@ -105,7 +105,7 @@ const Profile = () => {
                     </div>
 
                     <div className="profileUpdateItem">
-                      <label>Phone</label>
+                      <label className='displayLabel'>Phone</label>
                       <input
                         type="text"
                         placeholder="Not updated yet"
@@ -117,7 +117,7 @@ const Profile = () => {
                     </div>
 
                     <div className="profileUpdateItem">
-                      <label>Address</label>
+                      <label className='displayLabel'>Address</label>
                       <input
                         type="text"
                         placeholder="Not updated yet"
@@ -129,7 +129,7 @@ const Profile = () => {
                     </div>
 
                     <div className="profileUpdateItem">
-                      <label>Date of Birth</label>
+                      <label className='displayLabel'>Date of Birth</label>
                       <input
                         type="date"
                         // defaultValue={getDate()}

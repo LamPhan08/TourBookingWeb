@@ -7,7 +7,6 @@ const customers = [
         fullname: "Nguyen Van A",
         address: "Somewhere",
         dateofbirth: "2000-01-01",
-        avatar: ""
     },
     {
         id: "02",

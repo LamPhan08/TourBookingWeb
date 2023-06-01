@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import {DataGrid} from '@mui/x-data-grid';
+import React, { useState } from 'react'
+import { DataGrid } from '@mui/x-data-grid';
 import { MdDeleteOutline } from 'react-icons/md';
 import { MdEdit } from 'react-icons/md';
-import {GrView} from 'react-icons/gr';
+import { GrView } from 'react-icons/gr';
 import './tourlist.css'
 import { Link } from 'react-router-dom';
 import tourData from '../../assets/data/tours'
@@ -40,7 +40,7 @@ const TourList = () => {
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'city', headerName: 'City', width: 250 },
+    { field: 'city', headerName: 'Country/City', width: 250 },
     { field: 'address', headerName: 'Address', width: 250 },
     { field: 'title', headerName: 'Title', width: 250 },
     {
@@ -66,14 +66,14 @@ const TourList = () => {
         return (
           <div className='action_zone'>
             <Link to={'/dashboard/tours/tourdetails/' + params.row.id}>
-              <GrView className='view_tour'/>
+              <GrView className='view_tour' />
             </Link>
-            
+
             <Link to={'/dashboard/tours/touredit/' + params.row.id}>
               <MdEdit className='edit_tour' />
             </Link>
 
-            <MdDeleteOutline className='delete_tour' onClick={() => handleDelete(params.row.id)}/>
+            <MdDeleteOutline className='delete_tour' onClick={() => handleDelete(params.row.id)} />
           </div>
         )
       }
@@ -93,6 +93,24 @@ const TourList = () => {
         pageSizeOptions={[10, 20]}
         checkboxSelection
         disableRowSelectionOnClick
+        sx={{
+          '.MuiTablePagination-displayedRows': {
+            marginBottom: 0
+          },
+
+          '.MuiTablePagination-selectLabel': {
+            marginBottom: 0
+          },
+          '.MuiDataGrid-cell:focus': {
+            outline: 'none'
+          },
+          '.MuiDataGrid-cell:active': {
+            outline: 'none'
+          },
+          '.MuiDataGrid-columnHeaderTitle': {
+            fontWeight: 600
+          },
+        }}
       />
     </div>
   )

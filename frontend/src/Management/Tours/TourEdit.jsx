@@ -105,7 +105,7 @@ const TourEdit = () => {
 
       <div className='btn_zone'>
         
-        <button className="newTourButton">Create</button>
+        <button className="newTourButton">Update</button>
       </div>
      
     </div>
