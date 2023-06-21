@@ -21,10 +21,11 @@
     color: var(--secondary-color);
 }
 
-.line {
+.divideLine {
     border: #ddd solid 1px;
     margin-top: 15px;
     margin-bottom: 15px;
+    
   }
 
 .details {

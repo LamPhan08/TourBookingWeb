@@ -49,7 +49,7 @@ const SubmitReceipt = () => {
                         <div className="insideSubmitReceiptContainer">
                             <div className='notice mb-3'>Please provide a photo proof after the transfer</div>
 
-                            <div className='line mb-3'></div>
+                            <div className='divideLine mb-3'></div>
 
 
 

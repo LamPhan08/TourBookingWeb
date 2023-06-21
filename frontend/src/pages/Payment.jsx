@@ -57,14 +57,14 @@ const Payment = () => {
                                     <h4 className="tourNameTitle">{bookingData.tourname}</h4>
                                 </div>
 
-                                <div className='line'></div>
+                                <div className='divideLine'></div>
 
                                 <div className="details">
                                     <Row>
                                         <Col lg='4'>
                                             <div className='itemDisplay'>BOOKING SUMMARY</div>
 
-                                            <div className='line'></div>
+                                            <div className='divideLine'></div>
 
                                             <Row className='mb-3'>
                                                 <Col lg='5'>
@@ -132,7 +132,7 @@ const Payment = () => {
                                         <Col lg='4'>
                                             <div className='itemDisplay'>CONTACT DETAILS</div>
 
-                                            <div className='line'></div>
+                                            <div className='divideLine'></div>
 
                                             <Row className='mb-3'>
                                                 <Col lg='5'>
@@ -178,7 +178,7 @@ const Payment = () => {
                                         <Col lg='4'>
                                             <div className='itemDisplay'>TRANSFER INFORMATION</div>
 
-                                            <div className='line'></div>
+                                            <div className='divideLine'></div>
 
                                             <div className='detailsItem mb-3'>
                                                 Please transfer the correct amount and enter the correct transfer content

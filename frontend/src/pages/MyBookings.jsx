@@ -74,7 +74,7 @@ const MyBookings = () => {
                                     <h4 className="currentBookingsTitle">Current Bookings</h4>
                                 </div>
 
-                                <div className='line'></div>
+                                <div className='divideLine'></div>
 
                                 <div className="currentBookingsList">
                                     <DataGrid

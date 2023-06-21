@@ -42,14 +42,14 @@ const MyBookingDetails = () => {
                   <h4 className="tourNameTitle">{tourname}</h4>
                 </div>
 
-                <div className='line'></div>
+                <div className='divideLine'></div>
 
                 <div className="details">
                   <Row>
                     <Col lg='5'>
                       <div className='itemDisplay'>BOOKING SUMMARY</div>
 
-                      <div className='line'></div>
+                      <div className='divideLine'></div>
 
                       <Row className='mb-3'>
                         <Col lg='5'>
@@ -126,7 +126,7 @@ const MyBookingDetails = () => {
                     <Col lg='4'>
                       <div className='itemDisplay'>CONTACT DETAILS</div>
 
-                      <div className='line'></div>
+                      <div className='divideLine'></div>
 
                       <Row className='mb-3'>
                         <Col lg='5'>
@@ -172,7 +172,7 @@ const MyBookingDetails = () => {
                     <Col lg='3'>
                       <div className='itemDisplay'>PAYMENT STATUS</div>
 
-                      <div className='line'></div>
+                      <div className='divideLine'></div>
 
                       <div className={`paymentStatus ${paymentStatus === 'Pending' ? 'pendingStatus' : (paymentStatus === 'Approved' ? 'approvedStatus' : 'invalidStatus')}`}>
                         {paymentStatus === 'Pending' ? 'Pending...'
@@ -182,7 +182,7 @@ const MyBookingDetails = () => {
 
                       <div className='displayedIn4'>Payment Receipt</div>
 
-                      <div className='line'></div>
+                      <div className='divideLine'></div>
 
                       <div className='receiptZone mb-3'>
                         <img src={file} alt="Receipt"  className={file === '' ? null : 'haveImage'} onClick={file === '' ? null : handleViewImage}/>
